@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EB46F61-9C61-4480-81AB-4A09B76DC1ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>XamarinDevDaysDemo.UITests</RootNamespace>
+    <AssemblyName>XamarinDevDaysDemo.UITests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest">
+      <HintPath>..\packages\Xamarin.UITest.0.7.1\lib\Xamarin.UITest.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iOS\XamarinDevDaysDemo.iOS.csproj">
+      <Project>{C6590F5D-A87B-4A02-9EE3-6785FB52FC7A}</Project>
+      <Name>XamarinDevDaysDemo.iOS</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Droid\XamarinDevDaysDemo.Droid.csproj">
+      <Project>{B070313D-19D5-45C1-9E04-B11789582A57}</Project>
+      <Name>XamarinDevDaysDemo.Droid</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tests.cs" />
+    <Compile Include="AppInitializer.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinDevDaysDemo.MyXamlPage" xmlns:devdays="clr-namespace:XamarinDevDaysDemo;assembly=XamarinDevDaysDemo">
+	<ContentPage.Content>
+		<StackLayout Spacing="30" Padding="10, 30, 10, 0" BackgroundColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+			<Label Text="Hello Xamarin Dev Days!" HorizontalOptions="Center" TextColor="Black" />
+			<devdays:ImageCarousel Images="{Binding Images}" HorizontalOptions="Center" />
+			<Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in nisi nibh." HorizontalOptions="Center" TextColor="Black" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
