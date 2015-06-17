@@ -17,58 +17,30 @@ namespace XamarinDevDaysDemo
 
 	public class MyXamlPageViewModel : INotifyPropertyChanged
 	{
-		public IEnumerable<Image> Images { get; set; }
+		public IEnumerable<FileImageSource> Images { get; set; }
 
 		public MyXamlPageViewModel ()
 		{
 			Images = new [] {
-				new Image {
-					Source = "mickey.png",
-					WidthRequest = 340, 
-					HorizontalOptions = LayoutOptions.CenterAndExpand
-				},
-				new Image {
-					Source = "goofy.gif",
-					WidthRequest = 340,
-					HorizontalOptions = LayoutOptions.CenterAndExpand
-				},
-				new Image {
-					Source = "pluto.jpg",
-					WidthRequest = 340,
-					HorizontalOptions = LayoutOptions.CenterAndExpand
-				}
+				new FileImageSource { File = "mickey.png" },
+				new FileImageSource { File = "goofy.gif" },
+				new FileImageSource { File = "pluto.jpg" }
 			};
-
+			
 			waitAndAddImage ();
 		}
 
 		async void waitAndAddImage ()
 		{
 			await Task.Delay (3000);
-
+			
 			Images = new [] {
-				new Image {
-					Source = "mickey.png",
-					WidthRequest = 340, 
-					HorizontalOptions = LayoutOptions.CenterAndExpand
-				},
-				new Image {
-					Source = "goofy.gif",
-					WidthRequest = 340,
-					HorizontalOptions = LayoutOptions.CenterAndExpand
-				},
-				new Image {
-					Source = "pluto.jpg",
-					WidthRequest = 340,
-					HorizontalOptions = LayoutOptions.CenterAndExpand
-				},
-				new Image {
-					Source = "donald.gif",
-					WidthRequest = 340,
-					HorizontalOptions = LayoutOptions.CenterAndExpand
-				}
+				new FileImageSource { File = "mickey.png" },
+				new FileImageSource { File = "goofy.gif" },
+				new FileImageSource { File = "pluto.jpg" },
+				new FileImageSource { File = "donald.gif" }
 			};
-
+			
 			OnPropertyChanged (ImageCarousel.ImagesProperty.PropertyName);
 		}
 

@@ -7,9 +7,9 @@ namespace XamarinDevDaysDemo
 		public MyPage ()
 		{
 			var images = new [] {
-				new Image { Source = "mickey.png", WidthRequest = 340, HorizontalOptions = LayoutOptions.CenterAndExpand },
-				new Image { Source = "goofy.gif", WidthRequest = 340, HorizontalOptions = LayoutOptions.CenterAndExpand },
-				new Image { Source = "pluto.jpg", WidthRequest = 340, HorizontalOptions = LayoutOptions.CenterAndExpand }
+				new FileImageSource { File = "mickey.png" },
+				new FileImageSource { File = "goofy.gif" },
+				new FileImageSource { File = "pluto.jpg" }
 			};
 			
 			Content = new StackLayout {
@@ -20,7 +20,8 @@ namespace XamarinDevDaysDemo
 						TextColor = Color.Black
 					},
 					new ImageCarousel (images) {
-						HorizontalOptions = LayoutOptions.Center
+						HorizontalOptions = LayoutOptions.FillAndExpand,
+						VerticalOptions = LayoutOptions.FillAndExpand
 					},
 					new Label {
 						Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in nisi nibh.",
@@ -29,7 +30,7 @@ namespace XamarinDevDaysDemo
 					}
 				},
 				Spacing = 30,
-				Padding = new Thickness (10, 30, 10, 0),
+				Padding = new Thickness (10, 30, 10, 20),
 				BackgroundColor = Color.White,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand

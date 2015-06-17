@@ -7,11 +7,10 @@ namespace XamarinDevDaysDemo
 	public class ImageCarousel : AbsoluteLayout
 	{
 		//The Bindable Images property, if MVVM/binding context is desired
-		public static readonly BindableProperty ImagesProperty = BindableProperty.Create<ImageCarousel, IEnumerable<Image>> (p => p.Images, default(IEnumerable<Image>));
+		public static readonly BindableProperty ImagesProperty = BindableProperty.Create<ImageCarousel, IEnumerable<FileImageSource>> (p => p.Images, default(IEnumerable<FileImageSource>));
 
-		//TODO: change this to a collection of image urls/paths rather than Image elements
-		public IEnumerable<Image> Images {
-			get { return (IEnumerable<Image>)GetValue (ImagesProperty); }
+		public IEnumerable<FileImageSource> Images {
+			get { return (IEnumerable<FileImageSource>)GetValue (ImagesProperty); }
 			set { SetValue (ImagesProperty, value); }
 		}
 
@@ -34,7 +33,7 @@ namespace XamarinDevDaysDemo
 		{
 		}
 
-		public ImageCarousel (IEnumerable<Image> images)
+		public ImageCarousel (IEnumerable<FileImageSource> images)
 		{
 			//setting this triggers OnPropertyChanged below
 			Images = images;
@@ -47,8 +46,12 @@ namespace XamarinDevDaysDemo
 			//take the current list of Images and add them as children... this will in turn populate ImageList via OnChildAdded below
 			var point = Point.Zero;
 
-			foreach (var image in Images) {
-				this.Children.Add (image, new Rectangle (point, image.Bounds.Size));
+			foreach (var imageSource in Images) {
+				var image = new Image {
+					Source = imageSource
+				};
+				
+				this.Children.Add (image, new Rectangle (point, new Size (1, 1)), AbsoluteLayoutFlags.SizeProportional);
 				point = new Point (point.X + image.Width, 0);
 			}
 		}
